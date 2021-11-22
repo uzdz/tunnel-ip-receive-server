@@ -1,0 +1,19 @@
+# 生产环境
+
+source:
+  gin:
+    enable: true
+    port: 25433
+  rdbms:
+    schema: mysql
+    args: root:Abcd_1234@(127.0.0.1:3306)/ip_proxy?charset=utf8&parseTime=True&loc=Local
+
+sink:
+  kafka:
+    enable: false
+    broker-addrs: hadoop-server-01:9092
+  mongodb:
+    enable: true
+    addrs: mongodb://127.0.0.1:27017/?readPreference=primary&appname=MongoDB%20Compass&ssl=false
+    db-name: ip-proxy
+    collection-name: proxy-data
